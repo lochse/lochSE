@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "da14bf12-9480-4849-b033-596dd7be1e4f",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "男人1": {
+      "ver": "1.0.3",
+      "uuid": "7169e18f-eafb-4071-bfa9-87832a58a414",
+      "rawTextureUuid": "da14bf12-9480-4849-b033-596dd7be1e4f",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -1,
+      "offsetY": 0,
+      "trimX": 5,
+      "trimY": 0,
+      "width": 20,
+      "height": 32,
+      "rawWidth": 32,
+      "rawHeight": 32,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
