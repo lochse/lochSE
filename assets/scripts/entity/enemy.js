@@ -6,6 +6,7 @@ cc.Class({
         defend: 1,
         blood: 100,
         experience: 1,
+        money:1,
         ifShow: false
     },
 });

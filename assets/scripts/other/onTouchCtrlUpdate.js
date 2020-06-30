@@ -71,7 +71,8 @@ cc.Class({
                     "攻击值："+o2.attack.toString()+"\n"+
                     "防御值："+o2.defend.toString()+"\n"+
                     "生命值："+o2.blood.toString()+"\n"+
-                    "可获得经验值："+o2.experience.toString()+"\n";
+                    "可获得经验值："+o2.experience.toString()+"\n"+
+                    "可获得铜钱数："+o2.money.toString()+"\n";
                 o2.ifShow = true;
             }
             else{
@@ -84,13 +85,15 @@ cc.Class({
                         this.canFight = 1;
                         o1.blood -= e_singleHurt*(a_times-1);
                         o1.experience += o2.experience;
+                        o1.money += o2.money;
                     }
                 }
                 if(this.canFight == 1){
                     this.isMoving = false;
                     this.showAttribute();
                     this.elseLabel.getComponent(cc.Label).string = 
-                        "获得经验值："+o2.experience.toString()+"\n";
+                        "获得经验值："+o2.experience.toString()+"\n"+
+                        "获得铜钱数："+o2.money.toString();
                     other.node.destroy();
                     this.canFight = 0;
                     return;
@@ -102,6 +105,7 @@ cc.Class({
                         "防御值："+o2.defend.toString()+"\n"+
                         "生命值："+o2.blood.toString()+"\n"+
                         "可获得经验值："+o2.experience.toString()+"\n"+
+                        "可获得铜钱数："+o2.money.toString()+"\n"+
                         "你打不过哦";
                     this.canFight = 0;
                 }
@@ -161,7 +165,7 @@ cc.Class({
         }
 
         else if(other.node.group === 'gemstone'){
-            this.isMoving = false;
+            //this.isMoving = false;
             o1.attack += other.getComponent("gemstone").attack;
             o1.defend += other.getComponent("gemstone").defend;
             this.elseLabel.getComponent(cc.Label).string = 
@@ -173,7 +177,7 @@ cc.Class({
         }
 
         else if(other.node.group === 'medicine'){
-            this.isMoving = false;
+            //this.isMoving = false;
             o1.blood += other.getComponent("medicine").blood;
             this.elseLabel.getComponent(cc.Label).string = 
                         "生命值加"+other.getComponent("medicine").blood.toString();
@@ -183,12 +187,17 @@ cc.Class({
         }
 
         else if(other.node.group === 'key'){
-            this.isMoving = false;
+            //this.isMoving = false;
             o1.stoneNumber += 1;
             this.elseLabel.getComponent(cc.Label).string = "彩石数加1";
             this.showAttribute();
             other.node.destroy();
             return;
+        }
+
+        else if(other.node.group === 'shop'){
+            this.isMoving = false;            
+            other.node.getComponent('shopManager').showAlert(this.node,this.myLabel);            
         }
 
         // 1st step: get pre aabb, go back before collision
@@ -267,6 +276,7 @@ cc.Class({
         //this.direction = this.moveToPos.sub(oldPos).normalize();
 
         //下面这句是新增的更新方向
+        
         this.direction=this.rocker.getComponent('rocker').direction.normalize();
 
         //接下来不可少，线程不同步会出问题
@@ -290,7 +300,8 @@ cc.Class({
                     "攻击值："+o1.attack.toString()+"\n"+
                     "防御值："+o1.defend.toString()+"\n"+
                     "生命值："+o1.blood.toString()+"\n"+
-                    "持有彩石数："+o1.stoneNumber.toString()+"\n";
+                    "持有彩石数："+o1.stoneNumber.toString()+"\n"+
+                    "持有铜钱数："+o1.money.toString();
     },
 
     showText: function(){

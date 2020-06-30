@@ -28,9 +28,7 @@ cc.Class({
         this.RockerPointer.on(cc.Node.EventType.TOUCH_MOVE,function(e){
             //var w_pos = e.getLocation();
             //var pos = this.node.convertToNodeSpaceAR(w_pos);
-
             this.direction=this.node.convertToNodeSpaceAR(e.getLocation());
-
             var len = this.direction.mag();
             if(len > this.Max_r){
                 this.direction.x = this.Max_r * this.direction.x / len;
@@ -49,6 +47,6 @@ cc.Class({
             this.RockerPointer.setPosition(0,0);
         },this);
     },
-     
+
 });
 

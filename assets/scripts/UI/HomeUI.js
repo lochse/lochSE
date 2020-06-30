@@ -14,8 +14,19 @@ cc.Class({
         cc.director.loadScene('Game');
     },
 
+    gameExplain: function () {
+        this.btnGroup.pauseSystemEvents(true);
+        cc.director.loadScene('Explain');
+    },
+
+    setting: function () {
+        this.btnGroup.pauseSystemEvents(true);
+        cc.director.loadScene('Setting');
+    },
+
     endGame: function () {
         cc.game.end();
+        wx.exitMiniProgram(cc.game);
     },
 
     returnMenu: function () {

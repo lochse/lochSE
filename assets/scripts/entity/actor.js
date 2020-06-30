@@ -6,7 +6,8 @@ cc.Class({
         defend: 2,
         blood: 100,
         experience: 0,
-        level: 1,
+        //level: 1,
+        money : 0,
         stoneNumber: 0,
         spaceNumber: 1     
     },
